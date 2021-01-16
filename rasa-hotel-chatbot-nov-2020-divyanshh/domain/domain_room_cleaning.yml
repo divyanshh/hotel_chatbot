@@ -1,0 +1,38 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- room_cleaning
+- room_cleaning_right_now
+- room_cleaning_after_some_hours
+- room_cleaning_after_some_minutes
+- room_cleaning_at_specified_time
+
+entities:
+- room_cleaning_hours
+- room_cleaning_minutes
+- room_cleaning_at_specified_time
+
+actions:
+- custom_action_get_room_cleaning_after_hours
+- custom_action_get_room_cleaning_after_minutes
+
+slots:
+  room_cleaning_hours:
+    type: unfeaturized
+    influence_conversation: false
+  room_cleaning_minutes:
+    type: unfeaturized
+    influence_conversation: false
+  room_cleaning_at_specified_time:
+    type: unfeaturized
+    influence_conversation: false
+
+responses:
+  utter_ask_time_for_room_cleaning:
+  - text: When should I arrange for a cleaning?
+  utter_sending_someone_for_room_cleaning_right_now:
+  - text: Sure, I will send someone to your room right away.
+  utter_room_cleaning_at_specified_time:
+  - text: I have scheduled a cleaning at {room_cleaning_at_specified_time}

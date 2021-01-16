@@ -1,0 +1,113 @@
+version: "2.0"
+
+rules:
+
+# Currently only the intent 'book_room' triggers the form
+
+- rule: Activate room booking form
+  steps:
+    - intent: book_room
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for cancellation_policy)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    # This unhappy path handles the case 'cancellation_policy'
+    - intent: cancellation_policy
+    - action: utter_cancellation_policy
+    # Return to form after handling the `cancellation_policy` intent
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for check_in_timings)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    - intent: check_in_timings
+    - action: utter_check_in_timings
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for check_out_timings)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    - intent: check_out_timings
+    - action: utter_check_out_timings
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for cancel_reservation)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    - intent: cancel_reservation
+    - action: utter_cancel_reservation_1
+    - action: utter_cancel_reservation_2
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for restaurant_query)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    - intent: restaurant_query
+    - action: utter_restaurant_query
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for breakfast_availability)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    - intent: breakfast_availability
+    - action: utter_breakfast_availability
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for breakfast_timings)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    - intent: breakfast_timings
+    - action: utter_breakfast_timings
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots
+
+- rule: Unhappy path in room booking form (asking for restaurant_timings)
+  condition:
+    - active_loop: room_booking_form
+  steps:
+    - intent: restaurant_timings
+    - action: utter_restaurant_timings
+    - action: room_booking_form
+    - active_loop: room_booking_form
+    - active_loop: null
+    - action: utter_no_and_type_of_rooms
+    - action: custom_action_clear_form_slots

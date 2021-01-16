@@ -1,0 +1,302 @@
+version: "2.0"
+
+stories:
+
+- story: ask breakfast_timimgs b/w room booking req
+  steps:
+  - intent: nlu_fallback
+  - action: utter_fallback_message
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: breakfast_timings
+  - action: utter_breakfast_timings
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: breakfast_timings
+  - action: utter_breakfast_timings
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_simple_room
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: simple
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+
+- story: Ask check in time b/w room booking
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: check_in_timings
+  - action: utter_check_in_timings
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Ask check out time b/w room booking
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: check_out_timings
+  - action: utter_check_out_timings
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Ask cancel_reservation time b/w room booking
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: cancel_reservation
+  - action: utter_cancel_reservation_1
+  - action: utter_cancel_reservation_2
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Ask restaurant_query time b/w room booking
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: restaurant_query
+  - action: utter_restaurant_query
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Ask breakfast_availability time b/w room booking
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: breakfast_availability
+  - action: utter_breakfast_availability
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Ask restaurant_timings time b/w room booking
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: restaurant_timings
+  - action: utter_restaurant_timings
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null

@@ -1,0 +1,103 @@
+version: "2.0"
+
+stories:
+
+- story: room cleaning right now
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_right_now
+  - action: utter_sending_someone_for_room_cleaning_right_now
+
+- story: room cleaning right now
+  steps:
+  - intent: room_cleaning_right_now
+  - action: utter_sending_someone_for_room_cleaning_right_now
+
+- story: Room cleaning at specified time
+  steps:
+  - intent: room_cleaning_at_specified_time
+  - action: utter_room_cleaning_at_specified_time
+
+- story: Story from Conversation ID 0fd5c560585144289a3480c28dd5727b (room cleaning now)
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_right_now
+  - action: utter_sending_someone_for_room_cleaning_right_now
+
+- story: room cleaning after hours
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_after_some_hours
+  - action: custom_action_get_room_cleaning_after_hours
+
+- story: room cleaning after minutes
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_after_some_minutes
+  - action: custom_action_get_room_cleaning_after_minutes
+
+- story: Story from Conversation ID 0c65b677e6334464aedfe96116adcc5e (room cleaning after minutes)
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_after_some_minutes
+    entities:
+    - room_cleaning_minutes: 20 minutes
+  - slot_was_set:
+    - room_cleaning_minutes: 20 minutes
+  - action: custom_action_get_room_cleaning_after_minutes
+
+- story: Story from Conversation ID 0c65b677e6334464aedfe96116adcc5e (room cleaning after minutes)
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_after_some_minutes
+    entities:
+    - room_cleaning_minutes: 15 minutes
+  - slot_was_set:
+    - room_cleaning_minutes: 15 minutes
+  - action: custom_action_get_room_cleaning_after_minutes
+
+- story: Story from Conversation ID 0a9aaaf3369142f28dc2f6e7f07f09ec (room cleaning after hours)
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_after_some_hours
+    entities:
+    - room_cleaning_hours: 1 hour
+  - slot_was_set:
+    - room_cleaning_hours: 1 hour
+  - action: custom_action_get_room_cleaning_after_hours
+
+- story: Story from Conversation ID 0a9aaaf3369142f28dc2f6e7f07f09ec (room cleaning after hours)
+  steps:
+  - intent: room_cleaning
+  - action: utter_ask_time_for_room_cleaning
+  - intent: room_cleaning_after_some_hours
+    entities:
+    - room_cleaning_hours: 3 hours
+  - slot_was_set:
+    - room_cleaning_hours: 3 hours
+  - action: custom_action_get_room_cleaning_after_hours
+
+- story: room_cleaning_at_specified_time 1
+  steps:
+  - intent: room_cleaning_at_specified_time
+    entities:
+    - room_cleaning_at_specified_time: 5 pm today
+  - slot_was_set:
+    - room_cleaning_at_specified_time: 5 pm today
+  - action: utter_room_cleaning_at_specified_time
+
+- story: room_cleaning_at_specified_time 2
+  steps:
+  - intent: room_cleaning_at_specified_time
+    entities:
+    - room_cleaning_at_specified_time: 7 am tomorrow
+  - slot_was_set:
+    - room_cleaning_at_specified_time: 7 am tomorrow
+  - action: utter_room_cleaning_at_specified_time

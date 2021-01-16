@@ -1,0 +1,58 @@
+version: "2.0"
+
+stories:
+
+- story: check in timings
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: check_in_timings
+  - action: utter_check_in_timings
+
+- story: check in timings without greet
+  steps:
+  - intent: check_in_timings
+  - action: utter_check_in_timings
+
+- story: check out timings
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: check_out_timings
+  - action: utter_check_out_timings
+
+- story: check out timings without greet
+  steps:
+  - intent: check_out_timings
+  - action: utter_check_out_timings
+
+- story: cancel reservation
+  steps:
+  - intent: cancel_reservation
+  - action: utter_cancel_reservation_1
+  - action: utter_cancel_reservation_2
+
+- story: Cancellation policy
+  steps:
+  - intent: cancellation_policy
+  - action: utter_cancellation_policy
+
+- story: Restaurant query
+  steps:
+  - intent: restaurant_query
+  - action: utter_restaurant_query
+
+- story: Breakfast Availability
+  steps:
+  - intent: breakfast_availability
+  - action: utter_breakfast_availability
+
+- story: Breakfast timings
+  steps:
+  - intent: breakfast_timings
+  - action: utter_breakfast_timings
+
+- story: Restaurant timings
+  steps:
+  - intent: restaurant_timings
+  - action: utter_restaurant_timings

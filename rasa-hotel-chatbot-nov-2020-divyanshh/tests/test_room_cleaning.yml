@@ -1,0 +1,103 @@
+stories:
+
+- story: try all possible ways of room cleaning
+  steps:
+  - intent: greet
+    user: |-
+      hi
+  - action: utter_greet
+  - intent: room_cleaning_at_specified_time
+    user: |-
+      send room cleaning at 5 am tomorrow
+    entities:
+    - room_cleaning_at_specified_time: 5 am tomorrow
+  - slot_was_set:
+    - room_cleaning_at_specified_time: 5 am tomorrow
+  - action: utter_room_cleaning_at_specified_time
+  - intent: room_cleaning_at_specified_time
+    user: |-
+      arrange room cleaning at 5 pm today
+    entities:
+    - room_cleaning_at_specified_time: 5 pm today
+  - slot_was_set:
+    - room_cleaning_at_specified_time: 5 pm today
+  - action: utter_room_cleaning_at_specified_time
+  - intent: room_cleaning_after_some_hours
+    user: |-
+      arrange room cleaning after 2 hours
+    entities:
+    - room_cleaning_hours: 2 hours
+  - slot_was_set:
+    - room_cleaning_hours: 2 hours
+  - action: custom_action_get_room_cleaning_after_hours
+  - intent: room_cleaning_after_some_minutes
+    user: |-
+      send room cleaning after 20 minutes
+    entities:
+    - room_cleaning_minutes: 20 minutes
+  - slot_was_set:
+    - room_cleaning_minutes: 20 minutes
+  - action: custom_action_get_room_cleaning_after_minutes
+
+- story: try all possible ways of room cleaning 2
+  steps:
+  - intent: room_cleaning_right_now
+    user: |-
+      send room cleaning right niow
+  - action: utter_sending_someone_for_room_cleaning_right_now
+  - intent: room_cleaning_after_some_hours
+    user: |-
+      arrange room cleaning after 2 hours
+    entities:
+    - room_cleaning_hours: 2 hours
+  - slot_was_set:
+    - room_cleaning_hours: 2 hours
+  - action: custom_action_get_room_cleaning_after_hours
+  - intent: room_cleaning_after_some_hours
+    user: |-
+      arrange for room cleaning after 2 hours
+    entities:
+    - room_cleaning_hours: 2 hours
+  - slot_was_set:
+    - room_cleaning_hours: 2 hours
+  - action: custom_action_get_room_cleaning_after_hours
+  - intent: nlu_fallback
+    user: |-
+      arrange for room cleaning after 15 minutes
+    entities:
+    - room_cleaning_minutes: 15 minutes
+  - slot_was_set:
+    - room_cleaning_minutes: 15 minutes
+  - action: utter_fallback_message
+  - intent: room_cleaning_after_some_minutes
+    user: |-
+      room cleaning after 20 minutes
+    entities:
+    - room_cleaning_minutes: 20 minutes
+  - slot_was_set:
+    - room_cleaning_minutes: 20 minutes
+  - action: custom_action_get_room_cleaning_after_minutes
+  - intent: room_cleaning_at_specified_time
+    user: |-
+      room cleaning at 8 pm today
+    entities:
+    - room_cleaning_at_specified_time: 8 pm today
+  - slot_was_set:
+    - room_cleaning_at_specified_time: 8 pm today
+  - action: utter_room_cleaning_at_specified_time
+  - intent: room_cleaning_at_specified_time
+    user: |-
+      arrange room cleaning at 8 pm today
+    entities:
+    - room_cleaning_at_specified_time: 8 pm today
+  - slot_was_set:
+    - room_cleaning_at_specified_time: 8 pm today
+  - action: utter_room_cleaning_at_specified_time
+  - intent: room_cleaning_at_specified_time
+    user: |-
+      arrange room cleaning at 8 pm tomorrow
+    entities:
+    - room_cleaning_at_specified_time: 8 pm tomorrow
+  - slot_was_set:
+    - room_cleaning_at_specified_time: 8 pm tomorrow
+  - action: utter_room_cleaning_at_specified_time

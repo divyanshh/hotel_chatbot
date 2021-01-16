@@ -1,0 +1,52 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- book_room
+- book_n_rooms
+- book_simple_room
+- book_deluxe_room
+- book_room_for_n_people
+
+entities:
+- no_of_rooms
+- type_of_room
+- no_of_people
+
+actions:
+- custom_action_clear_form_slots
+- custom_action_set_rooms_for_n_people
+
+slots:
+  no_of_rooms:
+    type: unfeaturized
+    influence_conversation: false
+  type_of_room:
+    type: unfeaturized
+    influence_conversation: false
+  no_of_people:
+    type: unfeaturized
+    influence_conversation: false
+
+forms:
+  room_booking_form:
+    no_of_rooms:
+      - type: from_entity
+        entity: no_of_rooms
+    type_of_room:
+      - type: from_entity
+        entity: type_of_room
+
+responses:
+  utter_ask_no_of_rooms:
+  - text: How many rooms would you like to book?
+  utter_no_and_type_of_rooms:
+  - text: You have chosen to book {no_of_rooms} {type_of_room} rooms
+  utter_ask_type_of_room:
+  - text: What type of room(s) would you want to book?
+    buttons:
+    - payload: I would like to book simple rooms
+      title: Simple
+    - payload: I would like to book deluxe rooms
+      title: Deluxe

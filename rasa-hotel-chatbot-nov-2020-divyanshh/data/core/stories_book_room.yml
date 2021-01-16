@@ -1,0 +1,539 @@
+version: "2.0"
+
+stories:
+
+- story: Book room using form (happy path for booking deluxe room)
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+
+- story: Book room using form (happy path for booking simple room)
+  steps:
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '2'
+  - slot_was_set:
+    - no_of_rooms: '2'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '2'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_simple_room
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: simple
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+
+- story: Story from Conversation ID 27928f55a4a94682bbd95995470d1252 (just for training)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - slot_was_set:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - intent: greet
+  - action: utter_greet
+
+- story: Story from Conversation ID cd9c6e1b9fdd4214894b4756d56d920e (for training)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '5'
+  - slot_was_set:
+    - no_of_rooms: '5'
+  - action: room_booking_form
+  - slot_was_set:
+    - no_of_rooms: '5'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_simple_room
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: simple
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Story from Conversation ID 06aad9853b9c41458f3ccfc842ab85a1 (training)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - slot_was_set:
+    - no_of_rooms: '2'
+  - slot_was_set:
+    - no_of_rooms: '2'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: cancellation_policy
+  - action: utter_cancellation_policy
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: check_in_timings
+  - action: utter_check_in_timings
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: check_out_timings
+  - action: utter_check_out_timings
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: nlu_fallback
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: simple
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Story from Conversation ID f667de5b1b5841b08bd1d9996796b4a1 (cancel reservation)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: room_booking_form
+  - active_loop: room_booking_form
+  - slot_was_set:
+    - requested_slot: no_of_rooms
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: cancel_reservation
+  - action: utter_cancel_reservation_1
+  - action: utter_cancel_reservation_2
+  - action: room_booking_form
+  - slot_was_set:
+    - requested_slot: type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: room_booking_form
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: specify type first then no of rooms
+  steps:
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: utter_ask_no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: specify type first then no of rooms
+  steps:
+  - intent: book_simple_room
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - action: utter_ask_no_of_rooms
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '1'
+  - slot_was_set:
+    - type_of_room: simple
+  - slot_was_set:
+    - no_of_rooms: '1'
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n simple rooms first then specify type
+  steps:
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - action: utter_ask_type_of_room
+  - intent: book_simple_room
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - type_of_room: simple
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n rooms then specify type
+  steps:
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - action: utter_ask_type_of_room
+  - intent: book_simple_room
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n rooms then specify type 2
+  steps:
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - action: utter_ask_type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n deluxe rooms then specify type
+  steps:
+  - intent: book_n_rooms
+    entities:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - action: utter_ask_type_of_room
+  - intent: book_simple_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n deluxe rooms with type at single request
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_deluxe_room
+    entities:
+    - no_of_rooms: '3'
+    - type_of_room: deluxe
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n simple rooms with type at single request
+  steps:
+  - intent: book_simple_room
+    entities:
+    - no_of_rooms: '3'
+    - type_of_room: simple
+  - slot_was_set:
+    - no_of_rooms: '3'
+  - slot_was_set:
+    - type_of_room: simple
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n simple rooms with type at single request
+  steps:
+  - intent: book_simple_room
+    entities:
+    - no_of_rooms: '4'
+    - type_of_room: simple
+  - slot_was_set:
+    - no_of_rooms: '4'
+  - slot_was_set:
+    - type_of_room: simple
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book simple rooms for n people
+  steps:
+  - intent: book_room_for_n_people
+    entities:
+    - no_of_people: 4 people
+  - slot_was_set:
+    - no_of_people: 4 people
+  - action: custom_action_set_rooms_for_n_people
+  - slot_was_set:
+    - no_of_rooms: 2
+  - action: utter_ask_type_of_room
+  - intent: book_simple_room
+    entities:
+    - type_of_room: simple
+  - slot_was_set:
+    - type_of_room: simple
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book deluxe rooms for n people
+  steps:
+  - intent: book_room_for_n_people
+    entities:
+    - no_of_people: 5 people
+  - slot_was_set:
+    - no_of_people: 5 people
+  - action: custom_action_set_rooms_for_n_people
+  - slot_was_set:
+    - no_of_rooms: 3
+  - action: utter_ask_type_of_room
+  - intent: book_deluxe_room
+    entities:
+    - type_of_room: deluxe
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n deluxe rooms for x people
+  steps:
+  - intent: book_room_for_n_people
+    entities:
+    - type_of_room: deluxe
+    - no_of_people: 6 people
+  - slot_was_set:
+    - no_of_people: 6 people
+  - slot_was_set:
+    - type_of_room: deluxe
+  - action: custom_action_set_rooms_for_n_people
+  - slot_was_set:
+    - no_of_rooms: 3
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null
+
+- story: Book n simple rooms for x people
+  steps:
+  - intent: book_room_for_n_people
+    entities:
+    - type_of_room: simple
+    - no_of_people: 6 people
+  - slot_was_set:
+    - no_of_people: 6 people
+  - slot_was_set:
+    - type_of_room: simple
+  - action: custom_action_set_rooms_for_n_people
+  - slot_was_set:
+    - no_of_rooms: 3
+  - action: utter_no_and_type_of_rooms
+  - action: custom_action_clear_form_slots
+  - slot_was_set:
+    - no_of_rooms: null
+  - slot_was_set:
+    - type_of_room: null
+  - slot_was_set:
+    - no_of_people: null

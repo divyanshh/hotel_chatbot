@@ -1,0 +1,13 @@
+version: "2.0"
+
+stories:
+
+- story: utter greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: utter greet
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

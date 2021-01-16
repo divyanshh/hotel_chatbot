@@ -1,0 +1,52 @@
+version: "2.0"
+nlu:
+- intent: book_room
+  examples: |
+    - I want to book a room
+    - I would like to book a room
+    - I want to book a room for my stay
+    - book room
+    - room booking
+    - how do I book a room
+    - book rooms for stay
+    - book rooms
+- intent: book_n_rooms
+  examples: |
+    - I want to book [2](no_of_rooms) rooms
+    - [3](no_of_rooms)
+    - [4](no_of_rooms) rooms
+    - book [6](no_of_rooms) rooms
+    - [2](no_of_rooms)
+    - book [3](no_of_rooms) rooms
+    - [3](no_of_rooms) rooms
+- intent: book_simple_room
+  examples: |
+    - I would like to book simple rooms
+    - I would like to book simple room
+    - [simple](type_of_room) room
+    - book [simple](type_of_room) rooms
+    - book [3](no_of_rooms) [simple](type_of_room) rooms
+    - please book [4](no_of_rooms) [simple](type_of_room) rooms
+- intent: book_deluxe_room
+  examples: |
+    - I would like to book [deluxe](type_of_room) rooms
+    - I would like to book [deluxe](type_of_room) room
+    - [deluxe](type_of_room) room
+    - book [deluxe](type_of_room) rooms
+    - book [3](no_of_rooms) [deluxe](type_of_room) rooms
+    - please book [4](no_of_rooms) [deluxe](type_of_room) rooms
+- intent: book_room_for_n_people
+  examples: |
+    - Book room for [2 people](no_of_people)
+    - I would like to book a room for [3 people](no_of_people)
+    - book room for [4 people](no_of_people)
+    - Please book rooms for [5 people](no_of_people)
+    - Book room for [2 persons](no_of_people)
+    - I would like to book a room for [3 persons](no_of_people)
+    - Please book rooms for [5 persons](no_of_people)
+    - book [deluxe](type_of_room) rooms for [5 people](no_of_people)
+    - book [simple](type_of_room) rooms for [5 people](no_of_people)
+    - Please book [simple](type_of_room) rooms for [8 people](no_of_people)
+    - book [deluxe](type_of_room) rooms for [5 persons](no_of_people)
+    - book [simple](type_of_room) rooms for [5 persons](no_of_people)
+    - Please book [simple](type_of_room) rooms for [8 persons](no_of_people)

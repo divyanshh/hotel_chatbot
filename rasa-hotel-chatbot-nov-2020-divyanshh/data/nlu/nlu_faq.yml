@@ -1,0 +1,55 @@
+version: "2.0"
+nlu:
+- intent: check_in_timings
+  examples: |
+    - What are your check-in timings?
+    - What are your check in timings?
+    - Please tell me about the check in timings
+    - check in time
+- intent: check_out_timings
+  examples: |
+    - What are your check-out timings?
+    - What are your check out timings?
+    - Please tell me about the check out timings
+    - check out time
+    - check out timings
+- intent: cancel_reservation
+  examples: |
+    - How do I cancel a reservation?
+    - Cancel reservation
+    - I want to cancel the reservation
+    - Please cancel the reservation
+    - cancel reservation
+- intent: cancellation_policy
+  examples: |
+    - What is your cancellation policy?
+    - cancellation policy
+    - What is the cancellation policy?
+    - Cancel policy of the hotel
+- intent: restaurant_query
+  examples: |
+    - Does the hotel have a restaurant?
+    - Tell me about the hotel restaurant
+    - Where can I find the restaurant
+    - restaurant to dine
+    - restaurant
+    - is there a restaurant?
+- intent: breakfast_availability
+  examples: |
+    - Does the hotel offer breakfast?
+    - Is breakfast available at this hotel
+    - Is breakfast complementary?
+    - Complementary breakfast
+- intent: breakfast_timings
+  examples: |
+    - What are the breakfast timings?
+    - breakfast timings
+    - What time is the breakfast available
+    - Time for breakfast
+- intent: restaurant_timings
+  examples: |
+    - What are the timings of your restaurant?
+    - What are the restaurant timings?
+    - restaurant timings
+    - What time is the restaurant open
+    - Timings for restaurant

@@ -1,0 +1,49 @@
+version: "2.0"
+nlu:
+- intent: room_cleaning
+  examples: |
+    - I want to have my room cleaned
+    - I want to get my room cleaned
+    - room cleaning
+    - Send room cleaning
+    - Arrange room cleaning
+- intent: room_cleaning_right_now
+  examples: |
+    - Send room cleaning right now
+    - Arrange room cleaning right now
+    - Could you send someone right now?
+    - now
+    - right now
+    - send someone right now
+    - send someone now
+- intent: room_cleaning_after_some_hours
+  examples: |
+    - Could you send someone after [2 hours](room_cleaning_hours)?
+    - Send someone after [3 hours](room_cleaning_hours)
+    - After [4 hours](room_cleaning_hours)
+    - [1 hour](room_cleaning_hours)
+    - [2 hours](room_cleaning_hours)
+    - [2 hours](room_cleaning_hours) from now
+    - Arrange room cleaning [2 hours](room_cleaning_hours) from now
+- intent: room_cleaning_after_some_minutes
+  examples: |
+    - Could you send someone after [15 minutes](room_cleaning_minutes)?
+    - Send someone after [17 minutes](room_cleaning_minutes)
+    - After [20 minutes](room_cleaning_minutes)
+    - [10 minutes](room_cleaning_minutes)
+    - [10 minutes](room_cleaning_minutes) from now
+    - I would like room cleaning after [15 minutes](room_cleaning_minutes)
+- intent: room_cleaning_at_specified_time
+  examples: |
+    - I would like room cleaning at [8 am today](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8 pm today](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8 am tomorrow](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8 pm tomorrow](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8:30 am today](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8:30 pm today](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8 AM today](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8 PM today](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8 AM tomorrow](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8 PM tomorrow](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8:30 AM today](room_cleaning_at_specified_time)
+    - I would like room cleaning at [8:30 PM today](room_cleaning_at_specified_time)
