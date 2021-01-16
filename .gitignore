@@ -1,0 +1,15 @@
+events.db
+events.db-shm
+events.db-wal
+rasa.db
+rasa.db-shm
+rasa.db-wal
+models/*
+.DS_Store
+.idea/*
+domain.yml
+actions/__pycache__/*
+actions/room_cleaning/__pycache__/*
+*.pyc
+nlg*
+results/*
